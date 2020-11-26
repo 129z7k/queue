@@ -16,16 +16,21 @@ public class SchedulerGet {
 
     private final Queue queue;
     private final DoTask doTask;
+    private final String numPool;
     private ExecutorService executorService;
 
 
     @Autowired
-    public SchedulerGet(Queue queue, DoTask doTask) {
+    public SchedulerGet(Queue queue, DoTask doTask, @Value("${numPool}") String numPool) {
         this.queue = queue;
         this.doTask = doTask;
+        this.numPool = numPool;
     }
 
-
+    @PostConstruct
+    public void init() {
+        executorService = Executors.newFixedThreadPool(Integer.parseInt(numPool));
+    }
 
     private static Logger logger = LoggerFactory.getLogger(SchedulerGet.class);
 
@@ -45,7 +50,11 @@ public class SchedulerGet {
 
                 logger.warn("Получили задачу из очереди: "+t);
 
-                doTask.doTaskFromQueue(t);
+                executorService.execute(new Runnable() {
+                    public void run() {
+                        doTask.doTaskFromQueue(t);
+                    }
+                });
 
             }
         } catch (IllegalStateException e) {

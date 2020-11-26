@@ -26,8 +26,8 @@ public class SchedulerGetTest {
     @Test
     public void getTasks() {
 
-        Task task1 = new TaskImp(10,10,10);
-        Task task2 = new TaskImp(11,11,11);
+        Task task1 = new TaskImp(10,1,10);
+        Task task2 = new TaskImp(11,2,11);
         Mockito.when(queue.getNextTask()).thenReturn(task1,task2);
         Mockito.when(queue.haveTasks()).thenReturn(true,true,false);
 

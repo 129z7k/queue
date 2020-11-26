@@ -10,7 +10,7 @@
     </parent>
     <groupId>ru.stacksoft</groupId>
     <artifactId>queue</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>queue</name>
     <description>queue task</description>
 
