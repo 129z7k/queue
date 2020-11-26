@@ -2,6 +2,8 @@ package ru.task.impl;
 
 import ru.task.Task;
 
+import java.util.Objects;
+
 
 public class TaskImp implements Task {
 
@@ -40,5 +42,20 @@ public class TaskImp implements Task {
                 ", taskType=" + taskType +
                 ", payloadId=" + payloadId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskImp taskImp = (TaskImp) o;
+        return taskId == taskImp.taskId &&
+                taskType == taskImp.taskType &&
+                payloadId == taskImp.payloadId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskId, taskType, payloadId);
     }
 }

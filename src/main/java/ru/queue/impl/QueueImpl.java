@@ -16,7 +16,7 @@ public class QueueImpl implements Queue {
     }
 
     /**
-     * @return next task from queue or null if there are no tasks
+     * Метод возвращает очередную задачу из очереди, или null, если задач нет
      * @throws IllegalStateException
      */
     @Override
@@ -38,7 +38,7 @@ public class QueueImpl implements Queue {
     }
 
     /**
-     * @return the number of tasks in the queue
+     * Метод возвращает количество задач в очереди
      */
     @Override
     public boolean haveTasks() {

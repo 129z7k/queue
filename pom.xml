@@ -10,12 +10,12 @@
     </parent>
     <groupId>ru.stacksoft</groupId>
     <artifactId>queue</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>queue</name>
     <description>queue task</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
          <start-class>ru.QueueApplication</start-class>
     </properties>
 
